@@ -1,5 +1,6 @@
 {{/* Guide Pages — HowTo schema */}}
-{{ if eq .Section "guides" }}
+{{ $isGuide := eq .Params.layout "guides/single" }}
+{{ if $isGuide }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,7 +21,7 @@
 {{ end }}
 
 {{/* Article schema for long-form content */}}
-{{ if and (.IsPage) (not (eq .Section "guides")) }}
+{{ if and (.IsPage) (not $isGuide) }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
