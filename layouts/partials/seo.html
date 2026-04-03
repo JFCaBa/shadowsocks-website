@@ -1,0 +1,55 @@
+{{/* Guide Pages — HowTo schema */}}
+{{ if eq .Section "guides" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": {{ .Title | jsonify }},
+  "description": {{ .Description | jsonify }},
+  {{ with .Params.estimated_time }}"totalTime": "PT{{ . }}M",{{ end }}
+  "tool": [{
+    "@type": "HowToTool",
+    "name": "Terminal / Command Line"
+  }],
+  "supply": [{
+    "@type": "HowToSupply",
+    "name": "VPS or Raspberry Pi"
+  }]
+}
+</script>
+{{ end }}
+
+{{/* Article schema for long-form content */}}
+{{ if and (.IsPage) (not (eq .Section "guides")) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ .Title | jsonify }},
+  "description": {{ .Description | jsonify }},
+  "author": {
+    "@type": "Organization",
+    "name": "SkipRestriction"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SkipRestriction"
+  },
+  "inLanguage": "{{ .Language.Lang }}"
+}
+</script>
+{{ end }}
+
+{{/* Website schema on homepage */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SkipRestriction",
+  "url": "{{ .Site.BaseURL }}",
+  "description": {{ .Site.Params.description | jsonify }},
+  "inLanguage": ["en", "ru", "es"]
+}
+</script>
+{{ end }}
