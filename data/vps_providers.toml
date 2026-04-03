@@ -1,0 +1,39 @@
+[[providers]]
+name = "DigitalOcean"
+slug = "digitalocean"
+url = "#"
+price = "$4/mo"
+specs = "1 vCPU, 512MB RAM, 10GB SSD"
+description_en = "Popular choice with simple interface. Great for beginners."
+description_ru = "Популярный выбор с простым интерфейсом. Отлично подходит для начинающих."
+description_es = "Opción popular con interfaz simple. Ideal para principiantes."
+
+[[providers]]
+name = "Vultr"
+slug = "vultr"
+url = "#"
+price = "$3.50/mo"
+specs = "1 vCPU, 512MB RAM, 10GB SSD"
+description_en = "Affordable with many server locations worldwide."
+description_ru = "Доступный с множеством серверов по всему миру."
+description_es = "Económico con muchas ubicaciones de servidores en todo el mundo."
+
+[[providers]]
+name = "Hetzner"
+slug = "hetzner"
+url = "#"
+price = "€3.29/mo"
+specs = "1 vCPU, 2GB RAM, 20GB SSD"
+description_en = "Best value in Europe. Excellent performance for the price."
+description_ru = "Лучшее соотношение цены и качества в Европе."
+description_es = "Mejor relación calidad-precio en Europa. Excelente rendimiento."
+
+[[providers]]
+name = "OVH"
+slug = "ovh"
+url = "#"
+price = "€3.50/mo"
+specs = "1 vCPU, 2GB RAM, 20GB SSD"
+description_en = "European provider with strong DDoS protection."
+description_ru = "Европейский провайдер с надёжной защитой от DDoS."
+description_es = "Proveedor europeo con fuerte protección DDoS."
