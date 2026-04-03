@@ -41,3 +41,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 {{ partial "seo.html" . }}
+
+{{/* Google AdSense */}}
+{{ with .Site.Params.adsenseId }}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}" crossorigin="anonymous"></script>
+{{ end }}

@@ -49,6 +49,7 @@ enableRobotsTXT = true
   github = "https://github.com/JFCaBa/shadowsocks-server"
   dockerImage = "jfca68/shadowsocks-server:latest"
   ogImage = "/images/og-card.png"
+  adsenseId = "ca-pub-7775310069169651"
 
 [[languages.en.menus.main]]
   name = "Why Shadowsocks"
