@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}" class="scroll-smooth">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="min-h-screen flex flex-col">
+  {{ partial "header.html" . }}
+  <main class="flex-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  {{ if .Params.mermaid }}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+            script.onload = function() {
+              mermaid.initialize({
+                theme: 'dark',
+                themeVariables: {
+                  primaryColor: '#1e293b',
+                  primaryTextColor: '#e2e8f0',
+                  primaryBorderColor: '#60a5fa',
+                  lineColor: '#60a5fa',
+                  secondaryColor: '#334155',
+                  tertiaryColor: '#0f172a'
+                }
+              });
+              mermaid.run();
+            };
+            document.head.appendChild(script);
+            observer.disconnect();
+          }
+        });
+      });
+      document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+    });
+  </script>
+  {{ end }}
+</body>
+</html>

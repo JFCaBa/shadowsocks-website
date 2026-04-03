@@ -1,0 +1,62 @@
+<header class="sticky top-0 z-50 bg-navy-900/95 backdrop-blur border-b border-slate-800" x-data="{ mobileOpen: false }">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex justify-between items-center h-16">
+      {{/* Logo */}}
+      <a href="/{{ .Language.Lang }}/" class="flex items-center gap-2 text-xl font-bold no-underline">
+        <span class="text-blue-400">Skip</span><span class="text-purple-400">Restriction</span>
+      </a>
+
+      {{/* Desktop Nav */}}
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" class="text-slate-400 hover:text-slate-200 no-underline transition-colors">
+          {{ .Name }}
+        </a>
+        {{ end }}
+
+        {{/* Language Switcher */}}
+        <div x-data="{ open: false }" class="relative">
+          <button @click="open = !open" @click.away="open = false" class="flex items-center gap-1 text-blue-400 hover:text-blue-300">
+            <span>&#127760;</span>
+            <span class="uppercase">{{ .Language.Lang }}</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open" x-transition class="absolute right-0 mt-2 w-40 bg-navy-800 border border-slate-700 rounded-lg shadow-xl overflow-hidden">
+            {{ if .IsTranslated }}
+              {{ range .Translations }}
+              <a href="{{ .Permalink }}" class="block px-4 py-2 text-sm text-slate-300 hover:bg-navy-700 no-underline">
+                {{ .Language.LanguageName }}
+              </a>
+              {{ end }}
+            {{ end }}
+            <a href="{{ .Permalink }}" class="block px-4 py-2 text-sm text-blue-400 bg-navy-700 no-underline">
+              {{ .Language.LanguageName }}
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {{/* Mobile menu button */}}
+      <button @click="mobileOpen = !mobileOpen" class="md:hidden text-slate-400 hover:text-slate-200">
+        <svg x-show="!mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  {{/* Mobile Nav */}}
+  <div x-show="mobileOpen" x-transition class="md:hidden border-t border-slate-800 bg-navy-900">
+    <nav class="px-4 py-4 space-y-2">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="block py-2 text-slate-400 hover:text-slate-200 no-underline">{{ .Name }}</a>
+      {{ end }}
+      <div class="pt-2 border-t border-slate-800 flex gap-4">
+        {{ if .IsTranslated }}
+          {{ range .Translations }}
+          <a href="{{ .Permalink }}" class="text-sm text-slate-400 hover:text-slate-200 no-underline">{{ .Language.LanguageName }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </nav>
+  </div>
+</header>

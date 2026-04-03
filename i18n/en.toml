@@ -1,0 +1,104 @@
+[navigation]
+other = "Navigation"
+
+[languages]
+other = "Languages"
+
+[openSource]
+other = "Open Source"
+
+[getStarted]
+other = "Get Started"
+
+[howItWorks]
+other = "How It Works"
+
+[learnMore]
+other = "Learn more"
+
+[onThisPage]
+other = "On this page"
+
+[estimatedTime]
+other = "Estimated time"
+
+[difficulty]
+other = "Difficulty"
+
+[beginner]
+other = "Beginner"
+
+[minutes]
+other = "min"
+
+[prerequisites]
+other = "Prerequisites"
+
+[securityTip]
+other = "Security Tip"
+
+[info]
+other = "Info"
+
+[warning]
+other = "Warning"
+
+[tip]
+other = "Tip"
+
+[danger]
+other = "Danger"
+
+[copied]
+other = "Copied!"
+
+[copy]
+other = "Copy"
+
+[threeStepsTitle]
+other = "Three Steps to Freedom"
+
+[step1Title]
+other = "Rent a VPS"
+
+[step1Desc]
+other = "From $3/mo with our partner links"
+
+[step2Title]
+other = "Run One Command"
+
+[step2Desc]
+other = "Docker makes it a single line"
+
+[step3Title]
+other = "Browse Freely"
+
+[step3Desc]
+other = "Connect from any device"
+
+[whyShadowsocks]
+other = "Why Shadowsocks?"
+
+[whyShadowsocksTeaser]
+other = "Unlike traditional VPNs, Shadowsocks traffic looks like normal HTTPS. It's harder to detect, faster, and you control the server."
+
+[chooseSetup]
+other = "Choose Your Setup"
+
+[vpsSetup]
+other = "VPS Setup"
+
+[vpsSetupDesc]
+other = "Cloud server, best performance"
+
+[raspberryPi]
+other = "Raspberry Pi"
+
+[raspberryPiDesc]
+other = "Self-host at home, zero cost"
+
+[clientSetup]
+other = "Client Setup"
+
+[clientSetupDesc]
+other = "Connect from any device"

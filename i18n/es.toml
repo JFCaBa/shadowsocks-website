@@ -1,0 +1,104 @@
+[navigation]
+other = "Navegación"
+
+[languages]
+other = "Idiomas"
+
+[openSource]
+other = "Código Abierto"
+
+[getStarted]
+other = "Comenzar"
+
+[howItWorks]
+other = "Cómo funciona"
+
+[learnMore]
+other = "Saber más"
+
+[onThisPage]
+other = "En esta página"
+
+[estimatedTime]
+other = "Tiempo estimado"
+
+[difficulty]
+other = "Dificultad"
+
+[beginner]
+other = "Principiante"
+
+[minutes]
+other = "min"
+
+[prerequisites]
+other = "Requisitos"
+
+[securityTip]
+other = "Consejo de seguridad"
+
+[info]
+other = "Información"
+
+[warning]
+other = "Advertencia"
+
+[tip]
+other = "Consejo"
+
+[danger]
+other = "Peligro"
+
+[copied]
+other = "¡Copiado!"
+
+[copy]
+other = "Copiar"
+
+[threeStepsTitle]
+other = "Tres pasos hacia la libertad"
+
+[step1Title]
+other = "Alquila un VPS"
+
+[step1Desc]
+other = "Desde $3/mes con nuestros enlaces de afiliados"
+
+[step2Title]
+other = "Ejecuta un comando"
+
+[step2Desc]
+other = "Docker lo hace en una sola línea"
+
+[step3Title]
+other = "Navega libremente"
+
+[step3Desc]
+other = "Conéctate desde cualquier dispositivo"
+
+[whyShadowsocks]
+other = "¿Por qué Shadowsocks?"
+
+[whyShadowsocksTeaser]
+other = "A diferencia de las VPN tradicionales, el tráfico de Shadowsocks parece HTTPS normal. Es más difícil de detectar, más rápido, y tú controlas el servidor."
+
+[chooseSetup]
+other = "Elige tu configuración"
+
+[vpsSetup]
+other = "Configurar VPS"
+
+[vpsSetupDesc]
+other = "Servidor en la nube, mejor rendimiento"
+
+[raspberryPi]
+other = "Raspberry Pi"
+
+[raspberryPiDesc]
+other = "Tu servidor en casa, coste cero"
+
+[clientSetup]
+other = "Configurar cliente"
+
+[clientSetupDesc]
+other = "Conéctate desde cualquier dispositivo"
