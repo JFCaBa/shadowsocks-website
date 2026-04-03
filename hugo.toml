@@ -1,0 +1,116 @@
+baseURL = "https://skiprestriction.uk/"
+title = "SkipRestriction"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+    noClasses = false
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    weight = 1
+    title = "SkipRestriction - Your Internet. No Boundaries."
+    [languages.en.params]
+      description = "Set up your own encrypted Shadowsocks proxy. Step-by-step guides for VPS, Raspberry Pi, and all devices."
+      tagline = "Your Internet. No Boundaries."
+
+  [languages.ru]
+    languageName = "Русский"
+    languageCode = "ru"
+    weight = 2
+    title = "SkipRestriction - Ваш интернет. Без границ."
+    [languages.ru.params]
+      description = "Настройте собственный зашифрованный прокси Shadowsocks. Пошаговые руководства для VPS, Raspberry Pi и всех устройств."
+      tagline = "Ваш интернет. Без границ."
+
+  [languages.es]
+    languageName = "Español"
+    languageCode = "es"
+    weight = 3
+    title = "SkipRestriction - Tu Internet. Sin Límites."
+    [languages.es.params]
+      description = "Configura tu propio proxy cifrado Shadowsocks. Guías paso a paso para VPS, Raspberry Pi y todos los dispositivos."
+      tagline = "Tu Internet. Sin Límites."
+
+[params]
+  author = "SkipRestriction"
+  github = "https://github.com/JFCaBa/shadowsocks-server"
+  dockerImage = "jfca68/shadowsocks-server:latest"
+  ogImage = "/images/og-card.png"
+
+[[languages.en.menus.main]]
+  name = "Why Shadowsocks"
+  url = "/en/why-shadowsocks/"
+  weight = 1
+
+[[languages.en.menus.main]]
+  name = "Guides"
+  url = "/en/guides/"
+  weight = 2
+  hasChildren = true
+
+[[languages.en.menus.main]]
+  name = "FAQ"
+  url = "/en/faq/"
+  weight = 3
+
+[[languages.en.menus.main]]
+  name = "About"
+  url = "/en/about/"
+  weight = 4
+
+[[languages.ru.menus.main]]
+  name = "Почему Shadowsocks"
+  url = "/ru/pochemu-shadowsocks/"
+  weight = 1
+
+[[languages.ru.menus.main]]
+  name = "Руководства"
+  url = "/ru/guides/"
+  weight = 2
+  hasChildren = true
+
+[[languages.ru.menus.main]]
+  name = "FAQ"
+  url = "/ru/faq/"
+  weight = 3
+
+[[languages.ru.menus.main]]
+  name = "О проекте"
+  url = "/ru/about/"
+  weight = 4
+
+[[languages.es.menus.main]]
+  name = "Por qué Shadowsocks"
+  url = "/es/por-que-shadowsocks/"
+  weight = 1
+
+[[languages.es.menus.main]]
+  name = "Guías"
+  url = "/es/guides/"
+  weight = 2
+  hasChildren = true
+
+[[languages.es.menus.main]]
+  name = "FAQ"
+  url = "/es/faq/"
+  weight = 3
+
+[[languages.es.menus.main]]
+  name = "Acerca de"
+  url = "/es/about/"
+  weight = 4
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.128.0"

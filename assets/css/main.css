@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy-900 text-slate-200 antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold text-slate-100;
+  }
+
+  a {
+    @apply text-blue-400 hover:text-blue-300 transition-colors;
+  }
+
+  code {
+    @apply bg-navy-800 text-emerald-400 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  pre {
+    @apply bg-navy-800 rounded-lg overflow-x-auto;
+  }
+
+  pre code {
+    @apply bg-transparent px-0 py-0;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 text-navy-900 font-bold px-6 py-3 rounded-lg hover:bg-blue-400 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply border border-slate-600 text-slate-200 px-6 py-3 rounded-lg hover:border-slate-400 transition-colors;
+  }
+
+  .card {
+    @apply bg-navy-800 border border-slate-700 rounded-lg p-6 hover:border-slate-500 transition-colors;
+  }
+
+  .alert-info {
+    @apply bg-blue-500/10 border-l-4 border-blue-500 p-4 rounded-r-lg;
+  }
+
+  .alert-warning {
+    @apply bg-amber-500/10 border-l-4 border-amber-500 p-4 rounded-r-lg;
+  }
+
+  .alert-tip {
+    @apply bg-emerald-500/10 border-l-4 border-emerald-500 p-4 rounded-r-lg;
+  }
+
+  .alert-danger {
+    @apply bg-red-500/10 border-l-4 border-red-500 p-4 rounded-r-lg;
+  }
+}
