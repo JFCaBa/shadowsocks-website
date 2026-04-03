@@ -1,0 +1,14 @@
+{{ $lang := .Get "lang" | default "bash" }}
+<div class="relative my-4 group" x-data="{ copied: false }">
+  <div class="flex justify-between items-center bg-slate-700 px-3 py-1.5 rounded-t-lg text-xs">
+    <span class="text-slate-400">{{ $lang }}</span>
+    <button
+      @click="navigator.clipboard.writeText($refs.codeblock.textContent).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
+      class="text-blue-400 hover:text-blue-300 transition-colors"
+    >
+      <span x-show="!copied">{{ i18n "copy" }} 📋</span>
+      <span x-show="copied" x-transition class="text-emerald-400">{{ i18n "copied" }}</span>
+    </button>
+  </div>
+  <pre class="rounded-t-none rounded-b-lg p-4 overflow-x-auto"><code x-ref="codeblock" class="language-{{ $lang }} text-sm leading-relaxed">{{ .Inner }}</code></pre>
+</div>

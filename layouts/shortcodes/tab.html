@@ -1,0 +1,4 @@
+{{ $index := .Get "index" | int }}
+<div x-show="active === {{ $index }}" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="bg-navy-800 p-4 rounded-b-lg mt-0">
+  {{ .Inner | markdownify }}
+</div>

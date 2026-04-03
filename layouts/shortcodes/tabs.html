@@ -1,0 +1,15 @@
+{{ $id := printf "tabs-%d" .Ordinal }}
+<div x-data="{ active: 0 }" class="my-6" id="{{ $id }}">
+  <div class="flex border-b border-slate-700 overflow-x-auto">
+    {{ range $i, $name := split (.Get "names") "," }}
+    <button
+      @click="active = {{ $i }}"
+      :class="active === {{ $i }} ? 'border-blue-400 text-blue-400' : 'border-transparent text-slate-500 hover:text-slate-300'"
+      class="px-4 py-2 text-sm font-medium border-b-2 transition-colors whitespace-nowrap -mb-px"
+    >
+      {{ $name }}
+    </button>
+    {{ end }}
+  </div>
+  {{ .Inner }}
+</div>

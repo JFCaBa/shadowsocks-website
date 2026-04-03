@@ -1,0 +1,12 @@
+{{ $type := .Get "type" | default "info" }}
+{{ $titles := dict "info" (i18n "info") "warning" (i18n "warning") "tip" (i18n "tip") "danger" (i18n "danger") }}
+{{ $icons := dict "info" "ℹ️" "warning" "⚠️" "tip" "💡" "danger" "🚨" }}
+<div class="alert-{{ $type }} my-4">
+  <div class="font-semibold text-sm flex items-center gap-1">
+    <span>{{ index $icons $type }}</span>
+    <span>{{ index $titles $type }}</span>
+  </div>
+  <div class="mt-1 text-sm text-slate-400">
+    {{ .Inner | markdownify }}
+  </div>
+</div>
