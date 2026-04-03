@@ -2,12 +2,36 @@
 set -e
 
 SERVER="root@217.182.195.6"
-REMOTE_PATH="/var/www/skiprestriction.uk"
+REMOTE_PATH="/opt/shadowsocks-website"
 
-echo "Building site..."
+echo "Deploying to $SERVER..."
+ssh "$SERVER" << 'REMOTE'
+set -e
+
+# Clone or pull
+if [ -d /opt/shadowsocks-website ]; then
+  cd /opt/shadowsocks-website
+  git pull
+else
+  git clone https://github.com/JFCaBa/shadowsocks-website.git /opt/shadowsocks-website
+  cd /opt/shadowsocks-website
+fi
+
+# Install Hugo if not present
+if ! command -v hugo &> /dev/null; then
+  echo "Installing Hugo..."
+  apt-get update && apt-get install -y hugo
+fi
+
+# Install Node.js dependencies
+if [ ! -d node_modules ]; then
+  npm install
+fi
+
+# Build
 hugo --gc --minify
 
-echo "Deploying to $SERVER:$REMOTE_PATH..."
-rsync -avz --delete public/ "$SERVER:$REMOTE_PATH/"
+echo "Build complete. Site at /opt/shadowsocks-website/public/"
+REMOTE
 
 echo "Done! Site deployed to https://skiprestriction.uk"
