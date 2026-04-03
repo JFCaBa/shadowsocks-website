@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-SERVER="root@217.182.195.6"
+SERVER="ubuntu@217.182.195.66"
 REMOTE_PATH="/opt/shadowsocks-website"
 
 echo "Deploying to $SERVER..."
