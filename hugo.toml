@@ -18,6 +18,7 @@ enableRobotsTXT = true
     languageName = "English"
     languageCode = "en"
     weight = 1
+    contentDir = "content/en"
     title = "SkipRestriction - Your Internet. No Boundaries."
     [languages.en.params]
       description = "Set up your own encrypted Shadowsocks proxy. Step-by-step guides for VPS, Raspberry Pi, and all devices."
@@ -27,6 +28,7 @@ enableRobotsTXT = true
     languageName = "Русский"
     languageCode = "ru"
     weight = 2
+    contentDir = "content/ru"
     title = "SkipRestriction - Ваш интернет. Без границ."
     [languages.ru.params]
       description = "Настройте собственный зашифрованный прокси Shadowsocks. Пошаговые руководства для VPS, Raspberry Pi и всех устройств."
@@ -36,6 +38,7 @@ enableRobotsTXT = true
     languageName = "Español"
     languageCode = "es"
     weight = 3
+    contentDir = "content/es"
     title = "SkipRestriction - Tu Internet. Sin Límites."
     [languages.es.params]
       description = "Configura tu propio proxy cifrado Shadowsocks. Guías paso a paso para VPS, Raspberry Pi y todos los dispositivos."
