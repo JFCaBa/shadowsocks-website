@@ -37,3 +37,7 @@ SkipRestriction is an open-source project. You can find all of our code, report 
 - **Website source:** [github.com/JFCaBa/skiprestriction](https://github.com/JFCaBa/skiprestriction)
 
 If you find a bug, have a suggestion, or want to help translate the guides into additional languages, please open an issue or submit a pull request. Contributions of all kinds are welcome.
+
+## Contact
+
+For inquiries, contact us via our [GitHub Issues](https://github.com/JFCaBa/shadowsocks-server/issues) page.

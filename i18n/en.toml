@@ -102,3 +102,9 @@ other = "Client Setup"
 
 [clientSetupDesc]
 other = "Connect from any device"
+
+[privacyPolicy]
+other = "Privacy Policy"
+
+[termsConditions]
+other = "Terms & Conditions"

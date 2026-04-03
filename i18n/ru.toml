@@ -102,3 +102,9 @@ other = "Настройка клиента"
 
 [clientSetupDesc]
 other = "Подключайтесь с любого устройства"
+
+[privacyPolicy]
+other = "Политика конфиденциальности"
+
+[termsConditions]
+other = "Условия использования"
