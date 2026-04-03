@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Site.Params.ogImage }}">
 
 {{/* Tailwind CSS */}}
-{{ $css := resources.Get "css/main.css" | resources.PostCSS | minify | fingerprint }}
+{{ $css := resources.Get "css/main.css" | css.PostCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
 {{/* Preconnect for external resources */}}
