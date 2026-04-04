@@ -19,7 +19,7 @@ What sets Shadowsocks apart from other solutions is its focus on **stealth**. Ra
 At its core, Shadowsocks creates an encrypted connection between your device and a proxy server that you control. When you browse the internet through Shadowsocks, your traffic flows like this:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["Your Device"] -->|"Encrypted Traffic"| B["Shadowsocks Server"]
     B -->|"Normal Traffic"| C["Internet"]
     D["Your ISP"] -.->|"Sees: Normal HTTPS"| A

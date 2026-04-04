@@ -16,7 +16,7 @@ prerequisites:
 Antes de empezar, veamos lo que vamos a construir. Cada componente cumple una función específica para hacer que tu tráfico sea invisible para censores e ISP:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["Tu Dispositivo"] -->|"HTTPS :443"| B["Nginx"]
     B -->|"WebSocket"| C["Shadowsocks :8389"]
     C -->|"Tráfico Normal"| D["Internet"]

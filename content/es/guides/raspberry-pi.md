@@ -35,7 +35,7 @@ Cualquier Raspberry Pi a partir del modelo 3B+ tiene suficiente potencia para ej
 Cuando alojas Shadowsocks en una Raspberry Pi en casa, el tráfico fluye a través de tu conexión de internet doméstica. Esta es la arquitectura:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["Dispositivo Externo"] -->|"HTTPS :443"| B["Router"]
     B -->|"Port Forward"| C["Raspberry Pi"]
     C --> D["Nginx + Docker"]

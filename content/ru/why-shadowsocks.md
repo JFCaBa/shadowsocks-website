@@ -20,7 +20,7 @@ Shadowsocks -- это легковесный зашифрованный прок
 По своей сути Shadowsocks создаёт зашифрованное соединение между вашим устройством и прокси-сервером, который вы контролируете. Когда вы выходите в интернет через Shadowsocks, ваш трафик проходит следующим образом:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["Your Device"] -->|"Encrypted Traffic"| B["Shadowsocks Server"]
     B -->|"Normal Traffic"| C["Internet"]
     D["Your ISP"] -.->|"Sees: Normal HTTPS"| A

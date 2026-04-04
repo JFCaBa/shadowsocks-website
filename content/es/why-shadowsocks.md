@@ -20,7 +20,7 @@ Lo que diferencia a Shadowsocks de otras soluciones es su enfoque en el **sigilo
 En esencia, Shadowsocks crea una conexión cifrada entre tu dispositivo y un servidor proxy que tú controlas. Cuando navegas por internet a través de Shadowsocks, tu tráfico fluye de la siguiente manera:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["Tu Dispositivo"] -->|"Tráfico Cifrado"| B["Servidor Shadowsocks"]
     B -->|"Tráfico Normal"| C["Internet"]
     D["Tu ISP"] -.->|"Ve: HTTPS Normal"| A

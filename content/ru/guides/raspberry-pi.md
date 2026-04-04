@@ -34,7 +34,7 @@ prerequisites:
 Когда вы размещаете Shadowsocks на Raspberry Pi дома, трафик проходит через ваше домашнее интернет-соединение. Вот архитектура:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["External Device"] -->|"HTTPS :443"| B["Router"]
     B -->|"Port Forward"| C["Raspberry Pi"]
     C --> D["Nginx + Docker"]

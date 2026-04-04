@@ -34,7 +34,7 @@ Any Raspberry Pi from the 3B+ onwards has enough power to run Shadowsocks comfor
 When you host Shadowsocks on a Raspberry Pi at home, traffic flows through your home internet connection. Here is the architecture:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["External Device"] -->|"HTTPS :443"| B["Router"]
     B -->|"Port Forward"| C["Raspberry Pi"]
     C --> D["Nginx + Docker"]

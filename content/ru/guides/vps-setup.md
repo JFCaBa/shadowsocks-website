@@ -16,7 +16,7 @@ prerequisites:
 Прежде чем начать, рассмотрим, что мы будем строить. Каждый компонент выполняет определённую роль, делая ваш трафик невидимым для цензоров и провайдеров:
 
 {{< mermaid >}}
-graph LR
+graph TD
     A["Your Device"] -->|"HTTPS :443"| B["Nginx"]
     B -->|"WebSocket"| C["Shadowsocks :8389"]
     C -->|"Normal Traffic"| D["Internet"]
