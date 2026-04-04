@@ -1,3 +1,30 @@
+[[domain_registrars]]
+name = "Namecheap"
+slug = "namecheap"
+url = "#"
+price = "from $1.98/yr"
+description_en = "Affordable domains with free WhoisGuard privacy protection. Great for beginners."
+description_ru = "Доступные домены с бесплатной защитой конфиденциальности WhoisGuard. Отлично для начинающих."
+description_es = "Dominios económicos con protección de privacidad WhoisGuard gratuita. Ideal para principiantes."
+
+[[domain_registrars]]
+name = "Cloudflare Registrar"
+slug = "cloudflare"
+url = "#"
+price = "at cost (~$9/yr for .com)"
+description_en = "Domains at wholesale cost, no markup. Includes free DNS, CDN, and DDoS protection."
+description_ru = "Домены по оптовой цене, без наценки. Бесплатный DNS, CDN и защита от DDoS."
+description_es = "Dominios a precio de coste, sin margen. Incluye DNS, CDN y protección DDoS gratis."
+
+[[domain_registrars]]
+name = "Porkbun"
+slug = "porkbun"
+url = "#"
+price = "from $4.19/yr"
+description_en = "Low prices with free WHOIS privacy and SSL certificates included."
+description_ru = "Низкие цены с бесплатной приватностью WHOIS и SSL-сертификатами."
+description_es = "Precios bajos con privacidad WHOIS y certificados SSL incluidos gratis."
+
 [[providers]]
 name = "DigitalOcean"
 slug = "digitalocean"

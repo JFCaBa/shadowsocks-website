@@ -6,9 +6,8 @@ estimated_time: 20
 difficulty: "beginner"
 mermaid: true
 prerequisites:
-  - "A domain name (you can get one from Namecheap, Cloudflare, etc.)"
   - "Basic terminal/command line knowledge"
-  - "A credit card for VPS rental"
+  - "A credit card for domain + VPS rental"
 ---
 
 ## Architecture Overview
@@ -34,7 +33,62 @@ The result: your ISP sees standard HTTPS traffic to what appears to be an ordina
 
 ---
 
-## Step 1: Choose a VPS Provider
+## Step 1: Get a Domain Name
+
+You need a domain name for your proxy server. This is essential — it allows you to get a real SSL certificate, which makes your traffic look like normal HTTPS browsing. Without a domain, firewalls can easily identify and block your server by IP.
+
+A domain costs as little as **$2-9 per year**. Choose any registrar you like:
+
+{{< tabs names="Namecheap,Cloudflare,Porkbun" >}}
+
+{{< tab index="0" >}}
+**Namecheap** — Affordable domains with free privacy protection.
+
+1. Go to [namecheap.com](#) and search for a domain
+2. Choose a cheap TLD (`.uk`, `.xyz`, `.site` are often under $3/year)
+3. Add **WhoisGuard** (free) to hide your personal information
+4. Complete the purchase
+5. Go to **Domain List** → your domain → **Advanced DNS** to manage DNS records later
+
+{{< alert type="tip" >}}
+Pick a generic, innocent-looking domain name. Avoid words like "vpn", "proxy", or "bypass" — you want your server to look like any ordinary website.
+{{< /alert >}}
+
+{{< /tab >}}
+
+{{< tab index="1" >}}
+**Cloudflare Registrar** — Domains at wholesale cost, no markup.
+
+1. Create an account at [cloudflare.com](#)
+2. Go to **Domain Registration** → **Register Domain**
+3. Search for a domain and purchase (`.com` is ~$9/year at cost)
+4. DNS is automatically managed by Cloudflare — no extra setup needed
+
+{{< alert type="info" >}}
+Cloudflare also gives you free CDN, DDoS protection, and DNS management. This can add an extra layer of protection for your proxy server.
+{{< /alert >}}
+
+{{< /tab >}}
+
+{{< tab index="2" >}}
+**Porkbun** — Low prices, free WHOIS privacy and SSL included.
+
+1. Go to [porkbun.com](#) and search for a domain
+2. Many TLDs are available under $5/year
+3. WHOIS privacy is included free with every domain
+4. Complete the purchase and manage DNS from the dashboard
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< alert type="warning" >}}
+**Privacy matters.** Always enable WHOIS privacy protection (free at all registrars above). This hides your personal name, address, and email from the public WHOIS database.
+{{< /alert >}}
+
+---
+
+## Step 2: Choose a VPS Provider
 
 You need a virtual private server (VPS) -- a small cloud computer that will run your Shadowsocks proxy 24/7. The cheapest tier from any major provider is more than sufficient.
 
@@ -97,7 +151,7 @@ You need a virtual private server (VPS) -- a small cloud computer that will run 
 
 ---
 
-## Step 2: Point Your Domain to the Server
+## Step 3: Point Your Domain to the Server
 
 You need a domain name pointed at your VPS so that you can get a genuine SSL certificate. This is what makes your traffic look like normal HTTPS browsing.
 
@@ -114,7 +168,7 @@ DNS changes can take up to 24 hours to propagate worldwide, but usually complete
 
 ---
 
-## Step 3: Connect to Your Server via SSH
+## Step 4: Connect to Your Server via SSH
 
 Open a terminal on your computer and connect to your VPS:
 
@@ -132,7 +186,7 @@ Once connected, you should see a command prompt like `root@your-server:~#`. You 
 
 ---
 
-## Step 4: Install Docker
+## Step 5: Install Docker
 
 Docker lets us run Shadowsocks in an isolated container. Install it with a single command:
 
@@ -152,7 +206,7 @@ You should see output like `Docker version 27.x.x, build ...`.
 
 ---
 
-## Step 5: Deploy the Shadowsocks Container
+## Step 6: Deploy the Shadowsocks Container
 
 Now deploy the Shadowsocks server with v2ray-plugin support:
 
@@ -189,7 +243,7 @@ You should see a container named `shadowsocks` with status `Up`.
 
 ---
 
-## Step 6: Install and Configure Nginx
+## Step 7: Install and Configure Nginx
 
 Nginx will act as a reverse proxy, accepting HTTPS connections on port 443 and forwarding WebSocket traffic to the Shadowsocks container.
 
@@ -243,7 +297,7 @@ The `location /` block serves a simple text response for anyone who visits your 
 
 ---
 
-## Step 7: Get an SSL Certificate
+## Step 8: Get an SSL Certificate
 
 A genuine SSL certificate from Let's Encrypt is critical. It ensures your traffic uses real TLS encryption and that your server looks like a legitimate HTTPS website.
 
@@ -268,7 +322,7 @@ Make sure your domain's DNS is fully propagated before running Certbot. If Certb
 
 ---
 
-## Step 8: Test Your Setup
+## Step 9: Test Your Setup
 
 ### Verify the server
 
