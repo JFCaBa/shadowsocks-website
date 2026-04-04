@@ -7,9 +7,8 @@ estimated_time: 20
 difficulty: "beginner"
 mermaid: true
 prerequisites:
-  - "Un nombre de dominio (puedes obtener uno en Namecheap, Cloudflare, etc.)"
   - "Conocimientos básicos de terminal/línea de comandos"
-  - "Una tarjeta de crédito para alquilar el VPS"
+  - "Una tarjeta de crédito para el dominio y alquiler de VPS"
 ---
 
 ## Descripción general de la arquitectura
@@ -35,7 +34,62 @@ El resultado: tu ISP ve tráfico HTTPS estándar dirigido a lo que parece un sit
 
 ---
 
-## Paso 1: Elige un proveedor de VPS
+## Paso 1: Compra un nombre de dominio
+
+Necesitas un nombre de dominio para tu servidor proxy. Es esencial — te permite obtener un certificado SSL real, lo que hace que tu tráfico parezca navegación HTTPS normal. Sin un dominio, los firewalls pueden identificar y bloquear fácilmente tu servidor por IP.
+
+Un dominio cuesta tan solo **$2-9 al año**. Elige cualquier registrador:
+
+{{< tabs names="Namecheap,Cloudflare,Porkbun" >}}
+
+{{< tab index="0" >}}
+**Namecheap** — Dominios económicos con protección de privacidad gratuita.
+
+1. Ve a [namecheap.com](#) y busca un dominio
+2. Elige un TLD barato (`.uk`, `.xyz`, `.site` suelen costar menos de $3/año)
+3. Añade **WhoisGuard** (gratis) para ocultar tu información personal
+4. Completa la compra
+5. Ve a **Domain List** → tu dominio → **Advanced DNS** para gestionar registros DNS
+
+{{< alert type="tip" >}}
+Elige un nombre de dominio genérico e inocente. Evita palabras como "vpn", "proxy" o "bypass" — quieres que tu servidor parezca un sitio web cualquiera.
+{{< /alert >}}
+
+{{< /tab >}}
+
+{{< tab index="1" >}}
+**Cloudflare Registrar** — Dominios a precio de coste, sin margen.
+
+1. Crea una cuenta en [cloudflare.com](#)
+2. Ve a **Domain Registration** → **Register Domain**
+3. Busca un dominio y cómpralo (`.com` cuesta ~$9/año a precio de coste)
+4. El DNS se gestiona automáticamente desde Cloudflare — no necesitas configuración adicional
+
+{{< alert type="info" >}}
+Cloudflare también te da CDN gratis, protección DDoS y gestión de DNS. Esto añade una capa extra de protección para tu servidor proxy.
+{{< /alert >}}
+
+{{< /tab >}}
+
+{{< tab index="2" >}}
+**Porkbun** — Precios bajos, privacidad WHOIS y SSL incluidos gratis.
+
+1. Ve a [porkbun.com](#) y busca un dominio
+2. Muchos TLDs están disponibles por menos de $5/año
+3. La privacidad WHOIS está incluida gratis con cada dominio
+4. Completa la compra y gestiona el DNS desde el panel
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< alert type="warning" >}}
+**La privacidad importa.** Activa siempre la protección de privacidad WHOIS (gratis en todos los registradores anteriores). Esto oculta tu nombre, dirección y email de la base de datos pública de WHOIS.
+{{< /alert >}}
+
+---
+
+## Paso 2: Elige un proveedor de VPS
 
 Necesitas un servidor privado virtual (VPS) -- un pequeño ordenador en la nube que ejecutará tu proxy Shadowsocks las 24 horas del día, los 7 días de la semana. El plan más barato de cualquier proveedor importante es más que suficiente.
 
@@ -98,7 +152,7 @@ Necesitas un servidor privado virtual (VPS) -- un pequeño ordenador en la nube 
 
 ---
 
-## Paso 2: Apunta tu dominio al servidor
+## Paso 3: Apunta tu dominio al servidor
 
 Necesitas un nombre de dominio apuntando a tu VPS para poder obtener un certificado SSL genuino. Esto es lo que hace que tu tráfico parezca navegación HTTPS normal.
 
@@ -115,7 +169,7 @@ Los cambios DNS pueden tardar hasta 24 horas en propagarse a nivel mundial, pero
 
 ---
 
-## Paso 3: Conéctate a tu servidor por SSH
+## Paso 4: Conéctate a tu servidor por SSH
 
 Abre un terminal en tu ordenador y conéctate a tu VPS:
 
@@ -123,7 +177,7 @@ Abre un terminal en tu ordenador y conéctate a tu VPS:
 ssh root@YOUR_SERVER_IP
 {{< /code >}}
 
-Reemplaza `YOUR_SERVER_IP` con la dirección IP del Paso 1. Si configuraste una contraseña en lugar de una clave SSH, se te pedirá que la introduzcas.
+Reemplaza `YOUR_SERVER_IP` con la dirección IP del Paso 2. Si configuraste una contraseña en lugar de una clave SSH, se te pedirá que la introduzcas.
 
 {{< alert type="tip" >}}
 **Usuarios de Windows:** Windows 10 y 11 incluyen un cliente SSH integrado. Abre **Terminal** o **PowerShell** y usa el mismo comando `ssh` de arriba. Alternativamente, puedes usar [PuTTY](https://putty.org/) si prefieres una interfaz gráfica.
@@ -133,7 +187,7 @@ Una vez conectado, deberías ver un prompt de comandos como `root@your-server:~#
 
 ---
 
-## Paso 4: Instala Docker
+## Paso 5: Instala Docker
 
 Docker nos permite ejecutar Shadowsocks en un contenedor aislado. Instálalo con un solo comando:
 
@@ -153,7 +207,7 @@ Deberías ver una salida como `Docker version 27.x.x, build ...`.
 
 ---
 
-## Paso 5: Despliega el contenedor Shadowsocks
+## Paso 6: Despliega el contenedor Shadowsocks
 
 Ahora despliega el servidor Shadowsocks con soporte de v2ray-plugin:
 
@@ -190,7 +244,7 @@ Deberías ver un contenedor llamado `shadowsocks` con estado `Up`.
 
 ---
 
-## Paso 6: Instala y configura Nginx
+## Paso 7: Instala y configura Nginx
 
 Nginx actuará como proxy inverso, aceptando conexiones HTTPS en el puerto 443 y reenviando el tráfico WebSocket al contenedor Shadowsocks.
 
@@ -244,7 +298,7 @@ El bloque `location /` sirve una respuesta de texto simple para cualquier person
 
 ---
 
-## Paso 7: Obtén un certificado SSL
+## Paso 8: Obtén un certificado SSL
 
 Un certificado SSL genuino de Let's Encrypt es fundamental. Asegura que tu tráfico use cifrado TLS real y que tu servidor parezca un sitio web HTTPS legítimo.
 
@@ -269,7 +323,7 @@ Asegúrate de que el DNS de tu dominio esté completamente propagado antes de ej
 
 ---
 
-## Paso 8: Prueba tu configuración
+## Paso 9: Prueba tu configuración
 
 ### Verifica el servidor
 
@@ -285,7 +339,7 @@ Ahora configura el cliente Shadowsocks en tu dispositivo. Necesitarás estos dat
 |---|---|
 | **Servidor** | `YOUR_DOMAIN` |
 | **Puerto del servidor** | `443` |
-| **Contraseña** | La contraseña que estableciste en el Paso 5 |
+| **Contraseña** | La contraseña que estableciste en el Paso 6 |
 | **Cifrado** | `aes-256-gcm` |
 | **Plugin** | `v2ray-plugin` |
 | **Opciones del plugin** | `tls;host=YOUR_DOMAIN;path=/shadowsocks;mux=0` |
@@ -315,7 +369,7 @@ Tu proxy Shadowsocks ya está en funcionamiento. Aquí tienes algunos pasos sigu
 {{< code lang="bash" >}}
 docker pull jfca68/shadowsocks-server:latest
 docker stop shadowsocks && docker rm shadowsocks
-# Re-run the docker run command from Step 5
+# Re-run the docker run command from Step 6
 {{< /code >}}
 
 {{< alert type="tip" >}}
